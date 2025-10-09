@@ -38,7 +38,7 @@ const JourneyPage = () => {
           </Card>
           <Card className="w-full">
             <CardHeader>
-              <CardTitle>Personas</CardTitle>
+              <CardTitle>Segment Profiles</CardTitle>
               <CardDescription className="pt-4">
                 <ol className="list-decimal list-inside space-y-3">
                   <li>
