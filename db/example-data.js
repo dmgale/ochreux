@@ -26,8 +26,7 @@ exampleData = [
     id: '532582',
     title: 'Nightmares on Wax Echo45 x Nicholas Daley T-Shirt - Desert Dust',
     variant: 'XL',
-    image:
-      'https://d1rgjmn2wmqeif.cloudfront.net/r/l/a00105f1-6a12-4077-bf7b-0e07b9669268.png',
+    image: 'https://f4.bcbits.com/img/0040945829_10.jpg',
     price: {
       currency: 'USD',
       value: 39.99,

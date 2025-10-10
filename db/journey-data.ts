@@ -1,4 +1,4 @@
-import { UserMap } from '../(root)/journey/columns'
+import { UserMap } from '../app/(root)/journey/columns'
 
 const journeyData: UserMap[] = [
   {

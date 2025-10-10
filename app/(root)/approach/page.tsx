@@ -174,7 +174,7 @@ const GoalsPage = () => {
                       My Rationale
                     </span>
                     <p className="py-2">
-                      This provides a fact base for prioritisation — aligning
+                      This provides a fact base for prioritisation, aligning
                       stakeholders on whats working and where the biggest
                       UX-engineering value lies. My experience auditing and
                       migrating JATOs component library gives me a proven

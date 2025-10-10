@@ -6,8 +6,13 @@ const nextConfig = {
         hostname: 'd1rgjmn2wmqeif.cloudfront.net',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'f4.bcbits.com',
+        pathname: '/**',
+      },
     ],
-    domains: ['cloudfront.neter.me'],
+    domains: ['cloudfront.neter.me', 'unsplash.com'],
   },
 }
 

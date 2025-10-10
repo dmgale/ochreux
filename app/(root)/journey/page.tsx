@@ -1,4 +1,3 @@
-import journeyData from '@/app/db/journey-data'
 import PageTitle from '@/components/page-title'
 import { DataTable } from '@/components/shared/datatable'
 import TableLegend from '@/components/shared/datatable/table-legend'
@@ -8,6 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
+import journeyData from '@/db/journey-data'
 import { columns } from './columns'
 
 const JourneyPage = () => {
@@ -184,6 +184,7 @@ const JourneyPage = () => {
                     Are solitary pain points (eating alone, desk interruptions
                     etc) more or less important than social ones?
                   </li>
+                  <li>Time between phases, and are any every skipped?</li>
                 </ol>
               </CardDescription>
             </CardHeader>

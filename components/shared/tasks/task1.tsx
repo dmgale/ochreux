@@ -1,6 +1,5 @@
 'use client'
 
-import cartData from '@/app/db/cart-data'
 import {
   Accordion,
   AccordionContent,
@@ -10,9 +9,11 @@ import {
 import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Label } from '@/components/ui/label'
+import cartData from '@/db/cart-data'
 
 export function Task1() {
   const prettyJson = JSON.stringify(cartData, null, 2)
+
   return (
     <>
       <Accordion type="single" collapsible className="w-full">
@@ -85,7 +86,7 @@ export function Task1() {
                   </div>
                 </div>
                 <p>Example Data:</p>
-                {prettyJson}
+                {<pre>{prettyJson}</pre>}
                 <Button
                   size="lg"
                   className="text-white my-4"

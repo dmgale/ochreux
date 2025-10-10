@@ -61,7 +61,7 @@ export function Task2() {
               <Button
                 size="lg"
                 className="text-white my-4"
-                onClick={() => (window.location.href = '/cart')}
+                onClick={() => (window.location.href = '/journey')}
               >
                 VIEW SOLUTION
               </Button>

@@ -1,3 +1,23 @@
+# 🛒 Cart Page – UX Engineering Deliverable
+
+This project delivers a production-ready **Cart Page UI** (Cart List + Checkout Summary) using:
+
+- ✅ Next.js 15
+- ✅ React 19
+- ✅ Tailwind CSS
+- ✅ ShadCN components
+- ✅ Serverless Postgres (via Prisma ORM)
+
+It showcases UI precision, scalable architecture, accessibility best practices, and a foundation for eCommerce development in response to the UX Engineer Task.
+
+---
+
+## 💅 UI Section
+
+- **Tech Stack:** Next.js + Tailwind + ShadCN + Prisma
+- **Componentization:** Built as isolated components – `CartList`, `CartItem`, `Summary`
+- **Design Implementation:** Matches Figma designs exactly (spacing, color, typography)
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
@@ -35,6 +55,19 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
-
-
 - Next App Setup & Assets - layoutset set up: set fonts, favicon, global styles via assets folder, images etc# ochreux
+
+🧬 Prisma Setup
+
+This project uses Prisma ORM connected to a serverless Postgres database.
+
+Prisma Commands
+Command Description
+| Command | Description |
+| ------------------------ | ------------------------------------------------------ |
+| `npx prisma db push` | Push schema changes to your database (non-destructive) |
+| `npx prisma studio` | Open Prisma Studio – view and edit DB in browser |
+| `npx prisma generate` | Regenerate Prisma client after schema changes |
+| `npx prisma migrate dev` | Create and apply a new migration (development only) |
+
+Prisma schema is defined in prisma/schema.prisma
