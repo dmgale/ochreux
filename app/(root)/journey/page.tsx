@@ -73,7 +73,7 @@ const JourneyPage = () => {
           </Card>
           <Card className="w-full">
             <CardHeader>
-              <CardTitle>Office Cutlure Context</CardTitle>
+              <CardTitle>Office Culture Context</CardTitle>
               <CardDescription className="pt-4">
                 <ol className="list-disc list-inside space-y-3">
                   <li>
