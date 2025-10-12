@@ -1,4 +1,4 @@
-exampleData = [
+const exampleData = [
   {
     id: '524324',
     title: 'Polygon Window - Surfing On Sine Waves (Expanded Edition)',
@@ -26,7 +26,8 @@ exampleData = [
     id: '532582',
     title: 'Nightmares on Wax Echo45 x Nicholas Daley T-Shirt - Desert Dust',
     variant: 'XL',
-    image: 'https://f4.bcbits.com/img/0040945829_10.jpg',
+    image:
+      'https://d1rgjmn2wmqeif.cloudfront.net/r/l/a00105f1-6a12-4077-bf7b-0e07b9669268.png',
     price: {
       currency: 'USD',
       value: 39.99,
@@ -34,3 +35,5 @@ exampleData = [
     quantity: 1,
   },
 ]
+
+export default exampleData

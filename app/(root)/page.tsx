@@ -22,8 +22,8 @@ const HomePage = () => {
           <Paintbrush className="text-blue-600 w-4 h-4" />
           <span className="font-bold"> Design input</span>
           <span className="text-sm text-gray-600">
-            Figma files only (CartList + Checkout Summary). No ongoing design
-            collaboration.
+            Figma files only (Cart Item, CartList + Summary). No ongoing design
+            collaboration. Assumptions declared.
           </span>
         </div>
       </div>

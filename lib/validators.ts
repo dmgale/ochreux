@@ -14,11 +14,7 @@ export const insertProductSchema = z.object({
   title: z.string().min(3, 'Name must be at least 3 characters'),
   variant: z.string().min(3, 'Brand must be at least 3 characters'),
   quantity: z.coerce.number(), //same as stock
-  image: z
-    .array(z.string())
-    .min(1, 'Product must have at least one image')
-    .optional()
-    .or(z.literal('')),
+  image: z.string().optional().or(z.literal('')),
   price: currency,
   currency: z.string().min(2, 'Name must be at least 2 characters'),
 })

@@ -7,8 +7,20 @@ import { z } from 'zod'
 
 export type Product = z.infer<typeof insertProductSchema> & {
   id: string
+  createdAt?: Date
+}
+
+export type ProductData = {
+  id: string
+  title: string
+  variant: string
+  quantity: number
+  price: string
+  image: string
+  currency: string
   createdAt: Date
 }
+
 export type Cart = z.infer<typeof insertCartSchema>
 export type CartItem = z.infer<typeof cartItemSchema>
 

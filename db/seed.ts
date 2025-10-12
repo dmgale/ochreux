@@ -8,8 +8,6 @@ async function main() {
   // Clear existing data
   await prisma.product.deleteMany()
 
-  console.log('🗑️  Cleared existing data')
-
   // Seed products from cartData
   for (const product of cartData) {
     await prisma.product.create({

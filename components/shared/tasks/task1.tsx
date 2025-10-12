@@ -9,10 +9,10 @@ import {
 import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Label } from '@/components/ui/label'
-import cartData from '@/db/cart-data'
+import exampleData from '@/db/example-data'
 
 export function Task1() {
-  const prettyJson = JSON.stringify(cartData, null, 2)
+  const prettyJson = JSON.stringify(exampleData, null, 2)
 
   return (
     <>
@@ -69,7 +69,7 @@ export function Task1() {
                     <Label htmlFor="task-3">
                       After your coding time is complete
                     </Label>
-                    <p className="text-muted-foreground text-sm">
+                    <div className="text-muted-foreground text-sm">
                       <ul>
                         <li>
                           Please note any steps that you werent able to get to.
@@ -82,7 +82,7 @@ export function Task1() {
                           A summary of how we could go about improving the page
                         </li>
                       </ul>
-                    </p>
+                    </div>
                   </div>
                 </div>
                 <p>Example Data:</p>

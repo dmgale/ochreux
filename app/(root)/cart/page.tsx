@@ -12,6 +12,7 @@ import {
 } from '@/components/ui/card'
 import { getMyCart } from '@/lib/actions/cart.actions'
 import { getLastestProducts } from '@/lib/actions/product.actions'
+import { ProductData } from '@/types'
 
 export const metadata = {
   title: 'Cart',
@@ -20,10 +21,19 @@ export const metadata = {
 const CartPage = async () => {
   const latestProducts = await getLastestProducts()
   const cart = await getMyCart()
-
-  // Create a Set of cart item IDs for efficient lookup
-  //const cartItemIds = new Set(cart?.items?.map((item) => item.id) ?? [])
   const cartItemIds = cart?.items?.map((item) => item.id) ?? []
+
+  const transformedData: ProductData[] = latestProducts.map((item) => ({
+    id: item.id,
+    title: item.title,
+    variant: item.variant,
+    quantity: item.quantity,
+    price: item.price.toString(),
+    image: item.image ? item.image : '',
+    createdAt: item.createdAt,
+    currency: 'USD',
+  }))
+
   return (
     <div>
       <div className="container">
@@ -51,11 +61,8 @@ const CartPage = async () => {
         <h3 className="text-1xl font-semibold py-5">
           Add Products to re-test Remove functionality:
         </h3>
-        <ProductList
-          data={latestProducts}
-          limit={3}
-          cartItemIds={cartItemIds}
-        />
+
+        <ProductList data={transformedData} cartItemIds={cartItemIds} />
       </div>
       <h1 className="text-2xl font-semibold py-6">
         Process, Assumptions and Production Ready Thoughts
@@ -75,7 +82,7 @@ const CartPage = async () => {
                     </li>
                     <li>
                       Verify design tokens are exported/documented (spacing
-                      scale, shadows, transitions)
+                      scale, shadows, transitions) - if exist
                     </li>
                     <li>
                       Check for component states beyond hover (loading,
@@ -88,20 +95,16 @@ const CartPage = async () => {
                     <li>Flag design debt or inconsistencies early</li>
                     <li>Confirm responsive design sizes</li>
                     <li>
-                      Verify design tokens are exported/documented (spacing
-                      scale, shadows, transitions)
-                    </li>
-                    <li>
-                      Check for component states beyond hover (loading,
-                      disabled, error, success)
-                    </li>
-                    <li>
                       Identify animation/transition specs (duration, easing,
                       triggers)
                     </li>
                     <li>
                       Localization / i18n (if the cart needs to serve multiple
-                      languages)
+                      languages) - i.e would impact implementation approach
+                    </li>
+                    <li>
+                      Image strategies - confirm sizing, format, number
+                      available and source
                     </li>
                   </ol>
                 </div>
@@ -127,8 +130,9 @@ const CartPage = async () => {
                 </li>
                 <li>
                   I have complete autonomy over technical implementation and
-                  behaviours that are not stated, eg fixed layout for Summary
-                  Checkout Component
+                  behaviours that are not stated, eg sticky Summary Checkout
+                  Component, hover state on Remove Item. This would have been
+                  verified with Design in refinement / breakout session
                 </li>
               </ol>
             </CardDescription>
@@ -268,7 +272,8 @@ const CartPage = async () => {
               </h2>
               <ol className="list-decimal list-inside space-y-2 text-base leading-6 text-[#27252C]">
                 <li>
-                  Test at “in between” widths, not just the major breakpoints
+                  Test at “in between” widths, not just the major breakpoints,
+                  use Playwright for functional and automated ui testing
                 </li>
                 <li>Check for layout shifts or content overflow</li>
               </ol>
@@ -375,15 +380,13 @@ const CartPage = async () => {
                   Add visible focus states and improve keyboard navigation
                 </li>
                 <li>
-                  Increase spacing between cart items for better readability
-                </li>
-                <li>
                   Show a loading spinner and disable Proceed to Checkout if cart
                   is empty
                 </li>
+                <li>Products in cart to be clickable with a product slug</li>
                 <li>
-                  Consider showing cross-sell opportunities, recently viewed
-                  items, and payment options
+                  Cart page could show cross-sell opportunities, recently viewed
+                  items etc and payment options before proceeding
                 </li>
               </ol>
 
@@ -393,7 +396,7 @@ const CartPage = async () => {
               <ol className="list-decimal list-inside space-y-2 text-base leading-6 text-[#27252C]">
                 <li>
                   <strong>Cart State Persistence:</strong> Ensure cart data is
-                  saved across sessions
+                  saved across sessions, cart icons reflecting
                 </li>
                 <li>
                   <strong>Cross-tab Sync:</strong> Keep cart data in sync when
@@ -427,7 +430,7 @@ const CartPage = async () => {
               <h3 className="text-base font-semibold mt-8 mb-2 text-[#27252C]">
                 1. 📝 Understand Requirements & Assets
               </h3>
-              <ol className="list-decimal list-inside space-y-2 text-base leading-6 text-[#27252C]">
+              <ol className="list-decimal list-inside space-y-2 text-base leading-6  text-green-600">
                 <li>
                   <strong>Review Figma:</strong> Identify scope, interactions,
                   and layout variations
@@ -442,14 +445,14 @@ const CartPage = async () => {
                 </li>
                 <li>
                   <strong>Define breakpoints:</strong> Map out responsive
-                  behavior per device
+                  behavior per device / decide on flex and grid
                 </li>
               </ol>
 
-              <h3 className="text-base font-semibold mt-8 mb-2 text-[#27252C]">
+              <h3 className="text-base text-[#27252C] font-semibold mt-8 mb-2">
                 2. ⚙️ Project Setup
               </h3>
-              <ol className="list-decimal list-inside space-y-2 text-base leading-6 text-[#27252C]">
+              <ol className="list-decimal list-inside space-y-2 text-base leading-6  text-green-600">
                 <li>
                   <strong>Scaffold Next.js:</strong> Use Tailwind and App Router
                   setup
@@ -467,7 +470,7 @@ const CartPage = async () => {
               <h3 className="text-base font-semibold mt-8 mb-2 text-[#27252C]">
                 3. 🧱 Layout & Structure
               </h3>
-              <ol className="list-decimal list-inside space-y-2 text-base leading-6 text-[#27252C]">
+              <ol className="list-decimal list-inside space-y-2 text-base leading-6  text-green-600">
                 <li>
                   <strong>Build JSX skeleton:</strong> Use semantic tags and
                   ShadCN components
@@ -485,7 +488,7 @@ const CartPage = async () => {
               <h3 className="text-base font-semibold mt-8 mb-2 text-[#27252C]">
                 4. 🎨 Styling with Tailwind
               </h3>
-              <ol className="list-decimal list-inside space-y-2 text-base leading-6 text-[#27252C]">
+              <ol className="list-decimal list-inside space-y-2 text-base leading-6  text-green-600">
                 <li>
                   <strong>Apply utilities:</strong> Use Tailwind classes
                   directly with overrides as needed
@@ -503,7 +506,7 @@ const CartPage = async () => {
               <h3 className="text-base font-semibold mt-8 mb-2 text-[#27252C]">
                 5. ⚡ Interactivity & State
               </h3>
-              <ol className="list-decimal list-inside space-y-2 text-base leading-6 text-[#27252C]">
+              <ol className="list-decimal list-inside space-y-2 text-base leading-6  text-green-600">
                 <li>
                   <strong>Quantity controls:</strong> Add increment/decrement
                   logic
@@ -523,7 +526,7 @@ const CartPage = async () => {
               <h3 className="text-base font-semibold mt-8 mb-2 text-[#27252C]">
                 6. 🔌 Data Integration
               </h3>
-              <ol className="list-decimal list-inside space-y-2 text-base leading-6 text-[#27252C]">
+              <ol className="list-decimal list-inside space-y-2 text-base leading-6  text-green-600">
                 <li>
                   <strong>Connect to DB:</strong> Use Prisma with serverless
                   Postgres

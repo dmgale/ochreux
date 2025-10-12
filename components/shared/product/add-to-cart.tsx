@@ -9,7 +9,7 @@ interface AddToCartProps {
   item: {
     id: string
     title: string
-    price: number | string
+    price: string
     quantity: number
     variant: string
     image: string

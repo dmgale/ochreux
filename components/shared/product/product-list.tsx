@@ -29,7 +29,7 @@ const ProductList = ({
           })}
         </div>
       ) : (
-        <p className="text-muted-foreground">No products found.</p> // <-- Better fallback
+        <p className="text-muted-foreground">No products found.</p>
       )}
     </div>
   )

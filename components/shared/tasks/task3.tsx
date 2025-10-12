@@ -7,6 +7,8 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 import { Button } from '@/components/ui/button'
+import { Checkbox } from '@radix-ui/react-checkbox'
+import { Label } from '@radix-ui/react-label'
 
 export function Task3() {
   return (
@@ -23,10 +25,17 @@ export function Task3() {
               achieve in the first four weeks in the role. The goal is to set us
               on a good collaborative trajectory.
             </p>
-            <p>
-              Please describe an ideal approach (i.e. no constraints other than
-              time); consider questions / inputs, outputs, and rationale.
-            </p>
+            <div className="flex items-start gap-3">
+              <Checkbox id="task-3" defaultChecked />
+              <div className="grid gap-2">
+                <Label htmlFor="task-3">Approach</Label>
+                <p>
+                  Please describe an ideal approach (i.e. no constraints other
+                  than time); consider questions / inputs, outputs, and
+                  rationale.
+                </p>
+              </div>
+            </div>
             <div className="flex flex-col gap-4">
               <Button
                 size="lg"
