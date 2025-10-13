@@ -2,7 +2,7 @@
 
 import { CartItem } from '@/types'
 import { Prisma, PrismaClient } from '@prisma/client'
-import { convertToPlainObject, round2 } from '../utils'
+import { convertToPlainObject, formatError, round2 } from '../utils'
 import { cartItemSchema, insertCartSchema } from '../validators'
 
 const prisma = new PrismaClient()
@@ -153,6 +153,9 @@ export async function removeItemFromCart(productId: string) {
       message: `${product.title} was removed from cart`,
     }
   } catch (error) {
-    return { success: false, message: console.log(error) }
+    return {
+      success: false,
+      message: formatError(error),
+    }
   }
 }
